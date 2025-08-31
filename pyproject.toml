@@ -1,0 +1,29 @@
+[project]
+name = "mcp"
+version = "0.1.0"
+description = "Local MCP system with Ollama"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "aiosqlite>=0.21.0",
+    "anyio>=4.10.0",
+    "fastapi>=0.116.1",
+    "httpx>=0.28.1",
+    "pydantic>=2.11.7",
+    "python-multipart>=0.0.20",
+    "uvicorn[standard]>=0.35.0",
+    "uvloop; sys_platform != 'win32'",
+]
+
+[tool.uv.dependencies]
+fastapi = "*"
+uvicorn = { extras = ["standard"] }
+httpx = "*"
+aiosqlite = "*"
+pydantic = "*"
+anyio = "*"
+python-multipart = "*"
+uvloop = { version = "*", markers = "sys_platform != 'win32'" }
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/mcp"]
